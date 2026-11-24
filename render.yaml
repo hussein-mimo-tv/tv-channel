@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: tv-channel
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: ADMIN_TOKEN
+        generateValue: true # رمز حماية لوحة التحكم — انسخه من لوحة Render بعد النشر
+      - key: MAX_UPLOAD_MB
+        value: "500"
